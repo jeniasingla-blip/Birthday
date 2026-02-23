@@ -5,112 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Ram ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
   padding:0;
-  height:100vh;
+  font-family:'Poppins',sans-serif;
+  background:#0f0f1a;
+  color:#fff;
+  text-align:center;
+  overflow-y:auto; /* FIXED SCROLL ISSUE */
+}
+
+.section{
+  min-height:100vh;
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
-  flex-direction:column;
-  background:linear-gradient(135deg,#ffd6e8,#ffe6f7,#fff0f5);
-  font-family:'Poppins',sans-serif;
-  overflow:hidden;
-  text-align:center;
+  padding:30px;
 }
 
 button{
-  padding:18px 35px;
-  font-size:20px;
+  padding:15px 30px;
+  font-size:18px;
   border:none;
-  border-radius:40px;
-  background:#ff4da6;
+  border-radius:30px;
+  background:#ff2e63;
   color:white;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(255,0,128,0.3);
-  transition:0.3s;
 }
 
-button:hover{
-  transform:scale(1.1);
+.hidden{display:none;}
+
+.heart{
+  font-size:100px;
+  animation:beat 1s infinite;
 }
 
-.emoji{
-  font-size:120px;
-  margin:20px 0;
-  animation:float 2s infinite ease-in-out;
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.3);}
 }
 
-@keyframes float{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-20px);}
-  100%{transform:translateY(0px);}
-}
-
-.message{
+.typing{
   max-width:700px;
   font-size:20px;
-  opacity:0;
-  transition:1.5s;
-  padding:20px;
   line-height:1.6;
-  color:#660033;
+  margin-top:20px;
+  white-space:pre-wrap;
 }
 
-.show{
-  opacity:1;
+.slideshow{
+  width:80%;
+  max-width:400px;
+  margin-top:30px;
+  border-radius:15px;
 }
 
-.fadeOut{
-  display:none;
+.countdown{
+  font-size:40px;
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<button id="openBtn">Click to Open My Heart ❤️</button>
-
-<div id="surprise" class="fadeOut">
-  <div class="emoji">🪢</div>
-
-  <div class="message" id="msg">
-    Happy Birthday, Ram 💖✨ <br><br>
-    Today the universe feels softer because you exist.  
-    The way you smile, the way you love, the way you simply are —  
-    it makes my world warmer every single day. 🌸<br><br>
-    You are not just my love, you are my safe place,  
-    my chaos, my calm, my favorite notification,  
-    and my sweetest future dream. 💫<br><br>
-    May this year wrap around you like this little knot 🪢  
-    — holding you tight with love, luck, laughter and endless magic.  
-    I’m so lucky I get to celebrate you. 🎂❤️
-  </div>
+<!-- PASSWORD SECTION -->
+<div class="section" id="passwordSection">
+  <h2>🔐 Enter Password to Open My Heart</h2>
+  <input type="password" id="passwordInput" placeholder="Enter Password" style="padding:10px;border-radius:10px;border:none;">
+  <br><br>
+  <button onclick="checkPassword()">Unlock ❤️</button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+<!-- COUNTDOWN SECTION -->
+<div class="section hidden" id="countdownSection">
+  <h2>Get Ready Ram 💫</h2>
+  <div class="countdown" id="countdown">3</div>
+</div>
+
+<!-- MAIN SURPRISE -->
+<div class="section hidden" id="mainSection">
+
+  <!-- YOUTUBE BACKGROUND MUSIC -->
+  <iframe width="0" height="0" 
+  src="https://www.youtube.com/embed/450p7goxZqg?autoplay=1&loop=1&playlist=450p7goxZqg"
+  frameborder="0" allow="autoplay"></iframe>
+
+  <div class="heart">💞</div>
+
+  <div class="typing" id="typingText"></div>
+
+  <img id="slide" class="slideshow" src="photo1.jpg">
+
+</div>
 
 <script>
-const btn = document.getElementById("openBtn");
-const surprise = document.getElementById("surprise");
-const msg = document.getElementById("msg");
 
-btn.addEventListener("click", () => {
-  btn.style.display = "none";
-  surprise.classList.remove("fadeOut");
-  setTimeout(()=>{
-    msg.classList.add("show");
-  },500);
+function checkPassword(){
+  const password = document.getElementById("passwordInput").value;
+  if(password === "ram123"){
+    document.getElementById("passwordSection").classList.add("hidden");
+    document.getElementById("countdownSection").classList.remove("hidden");
+    startCountdown();
+  } else {
+    alert("Wrong password ❤️ Try again");
+  }
+}
 
-  confetti({
-    particleCount:150,
-    spread:90,
-    origin:{y:0.6}
-  });
-});
+function startCountdown(){
+  let count = 3;
+  const countdownEl = document.getElementById("countdown");
+  const interval = setInterval(()=>{
+    count--;
+    countdownEl.innerText = count;
+    if(count === 0){
+      clearInterval(interval);
+      document.getElementById("countdownSection").classList.add("hidden");
+      document.getElementById("mainSection").classList.remove("hidden");
+      typeMessage();
+      startSlideshow();
+    }
+  },1000);
+}
+
+const message = `Happy Birthday Ram ❤️
+
+All of me loves all of you.
+
+You are my safe place, my chaos, my calm.
+The way you exist makes my world softer.
+
+May this year wrap around you with love,
+hold you gently,
+and remind you that you are deeply, endlessly cherished.
+
+Today isn’t just your birthday…
+It’s the day the universe decided I would be lucky enough to love you.`;
+
+function typeMessage(){
+  let i=0;
+  const speed=40;
+  function typing(){
+    if(i < message.length){
+      document.getElementById("typingText").innerHTML += message.charAt(i);
+      i++;
+      setTimeout(typing,speed);
+    }
+  }
+  typing();
+}
+
+function startSlideshow(){
+  const images=["photo1.jpg","photo2.jpg","photo3.jpg"];
+  let index=0;
+  setInterval(()=>{
+    index=(index+1)%images.length;
+    document.getElementById("slide").src=images[index];
+  },3000);
+}
+
 </script>
 
 </body>
