@@ -10,73 +10,43 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: 'Georgia', serif;
+font-family:'Georgia',serif;
 }
 
 body{
-background: linear-gradient(to bottom, #0f0f0f, #1a0000);
-color: #fff;
+background:linear-gradient(to bottom,#000000,#1a0000);
+color:white;
 overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
-.netflix-bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background: radial-gradient(circle at center, rgba(255,0,0,0.2), transparent 70%);
-z-index:-2;
-}
-
-.overlay{
-position:fixed;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-z-index:-1;
-}
-
 header{
 text-align:center;
-padding:30px;
-font-size:14px;
+padding:20px;
+font-size:13px;
 letter-spacing:2px;
 color:#ff9aa2;
-animation:fadeIn 3s ease-in-out;
 }
 
 h1{
 text-align:center;
 font-size:48px;
-margin-top:20px;
-animation:dramaticName 4s infinite alternate;
+margin:20px 0;
 color:#ff4d6d;
+animation:glow 3s infinite alternate;
 }
 
-@keyframes dramaticName{
-0%{letter-spacing:2px; text-shadow:0 0 10px red;}
-100%{letter-spacing:8px; text-shadow:0 0 30px #ff4d6d;}
+@keyframes glow{
+from{ text-shadow:0 0 10px red; }
+to{ text-shadow:0 0 40px #ff4d6d; }
 }
 
 .content{
 max-width:800px;
 margin:auto;
-padding:40px 20px;
-line-height:1.8;
+padding:20px;
+line-height:1.9;
 font-size:18px;
-}
-
-.scroll-text{
-opacity:0;
-transform:translateY(30px);
-transition:all 1s ease;
-}
-
-.scroll-text.visible{
-opacity:1;
-transform:translateY(0);
 }
 
 .music-btn{
@@ -86,11 +56,9 @@ padding:12px 25px;
 background:#ff4d6d;
 border:none;
 border-radius:30px;
-color:#fff;
-font-size:16px;
+color:white;
 cursor:pointer;
 box-shadow:0 0 20px #ff4d6d;
-transition:0.3s;
 }
 
 .music-btn:hover{
@@ -101,30 +69,62 @@ background:#ff1e56;
 display:block;
 margin:40px auto;
 padding:10px 20px;
-background:#222;
+background:black;
 color:#ff9aa2;
 border:1px solid #ff4d6d;
 border-radius:20px;
 cursor:pointer;
 }
 
-.hidden-message{
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
 display:none;
-margin-top:20px;
+justify-content:center;
+align-items:center;
 padding:20px;
-background:rgba(255,0,0,0.1);
-border-radius:10px;
+z-index:999;
+}
+
+.popup-content{
+background:linear-gradient(to bottom,#1a0000,#000);
+padding:30px;
+border-radius:15px;
+max-width:600px;
+text-align:center;
+box-shadow:0 0 40px red;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:scale(0.9);}
+to{opacity:1;transform:scale(1);}
+}
+
+.back-btn{
+margin-top:20px;
+padding:10px 20px;
+background:#ff4d6d;
+border:none;
+border-radius:20px;
+color:white;
+cursor:pointer;
 }
 
 .heart{
 position:fixed;
+bottom:-10px;
 color:#ff4d6d;
 animation:float 6s linear infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh) scale(0.5); opacity:1;}
-100%{transform:translateY(-10vh) scale(1); opacity:0;}
+0%{transform:translateY(0) scale(0.5);opacity:1;}
+100%{transform:translateY(-110vh) scale(1.2);opacity:0;}
 }
 
 </style>
@@ -132,10 +132,7 @@ animation:float 6s linear infinite;
 
 <body>
 
-<div class="netflix-bg"></div>
-<div class="overlay"></div>
-
-<header>✨ Before reading... scroll to the end and tap to feel my love ✨</header>
+<header>✨ Before reading… scroll down slowly and tap to feel my love ✨</header>
 
 <h1>RAM ❤️</h1>
 
@@ -145,106 +142,89 @@ Tap to feel my love 🎵
 
 <div class="content">
 
-<div class="scroll-text">
-You’re 38 today… and my God, how beautifully you’ve evolved. 🖤  
-You now cancel late night chaos because morning walks call you louder.  
-You sleep early, pretend you're disciplined, but still secretly check your phone hoping it's me texting you. 😌  
-</div>
+<p>
+You’re 38 today… and somehow even more irresistible than last year.  
+You cancel plans early because morning walks are important now 😌  
+You sleep on time… but still wait for my message before closing your eyes.  
+And this year? This year belonged to us.  
+To stolen moments. To laughter. To long talks.  
+To loving each other deeper than we ever imagined possible. ❤️  
+</p>
 
-<div class="scroll-text">
-This year… this year was ours.  
-Not just in days spent together, but in moments that stitched our souls tighter.  
-We didn’t just love — we built something sacred.  
-</div>
+<p>
+I dream of building a life where birthdays are just reminders  
+that we are growing… but growing together.  
+Where coffee tastes better because you’re sitting across from me.  
+Where our fights end in tighter hugs.  
+Where every version of you… I choose. Again and again. 💞  
+</p>
 
-<div class="scroll-text">
-I dream of waking up beside you…  
-Of arguing about dosa vs idli for breakfast 😌  
-Of you making that serious face while I tease you endlessly.  
-Of building a home that smells like coffee and comfort and us. ☕❤️  
-</div>
+<p>
+Happy Birthday my evolving, maturing, still dangerous love.  
+May 38 be softer, hotter, deeper…  
+and full of us. 🔥  
+</p>
 
-<div class="scroll-text">
-I imagine your 45th birthday… your 60th…  
-Grey hair, slower walks, but the same mischievous smile.  
-I will still look at you like you are my favourite miracle.  
-</div>
-
-<div class="scroll-text">
-You don’t even realise how deeply you changed me.  
-You made love feel safe.  
-You made intimacy feel warm instead of loud.  
-You made forever feel less scary.  
-</div>
-
-<div class="scroll-text">
-I want road trips.  
-Late night confessions.  
-Fights that end in tighter hugs.  
-A life where no matter how chaotic the world gets…  
-we always come back to each other. 💞  
-</div>
-
-<div class="scroll-text">
-Happy Birthday, my evolving, growing, walking-early, canceling-plans,  
-still insanely irresistible love.  
-You are 38… and somehow more attractive than ever. 🔥  
-</div>
-
-<button class="hidden-btn" onclick="showMessage()">Tap to unlock something special 🔐</button>
-
-<div class="hidden-message" id="specialMessage">
-“I never knew laughter had a sound… until I heard yours.” 💗  
-</div>
+<button class="hidden-btn" onclick="openPopup()">
+Unlock something special 🔐
+</button>
 
 </div>
 
+<!-- POPUP NOTE -->
+<div class="popup" id="popupNote">
+<div class="popup-content">
+<h2>For You 💌</h2>
+<p style="margin-top:20px;">
+“I never knew laughter had a sound… until I heard yours.” ❤️  
+</p>
+<button class="back-btn" onclick="closePopup()">Go back to my heart 💕</button>
+</div>
+</div>
+
+<!-- AUDIO -->
 <audio id="bgMusic">
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
+// MUSIC FUNCTION
 function toggleMusic(){
 var music = document.getElementById("bgMusic");
 var btn = document.getElementById("musicControl");
 
 if(music.paused){
 music.play();
-btn.innerText = "Pause before I blush too much 💕";
+btn.innerText="Pause before I miss you too much 💕";
 }else{
 music.pause();
-btn.innerText = "Tap to feel my love 🎵";
+btn.innerText="Tap to feel my love 🎵";
 }
 }
 
-function showMessage(){
-document.getElementById("specialMessage").style.display="block";
+// POPUP FUNCTIONS
+function openPopup(){
+document.getElementById("popupNote").style.display="flex";
 }
 
-const texts = document.querySelectorAll('.scroll-text');
-
-window.addEventListener('scroll', ()=>{
-texts.forEach(text=>{
-const position = text.getBoundingClientRect().top;
-if(position < window.innerHeight - 100){
-text.classList.add('visible');
+function closePopup(){
+document.getElementById("popupNote").style.display="none";
 }
-});
-});
 
+// FLOATING HEARTS
 function createHeart(){
-const heart = document.createElement("div");
+const heart=document.createElement("div");
 heart.classList.add("heart");
-heart.innerHTML = "❤️";
-heart.style.left = Math.random()*100 + "vw";
-heart.style.fontSize = Math.random()*20 + 20 + "px";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+20)+"px";
 document.body.appendChild(heart);
 
 setTimeout(()=>{heart.remove();},6000);
 }
 
-setInterval(createHeart,1000);
+setInterval(createHeart,800);
 
 </script>
 
