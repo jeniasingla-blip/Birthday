@@ -5,70 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy 38th Birthday Ram ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 body{
   margin:0;
   padding:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(to bottom,#0f0c29,#302b63,#24243e);
   color:#fff;
   overflow-y:auto;
+  background: radial-gradient(circle at top, #1a001f, #000000 70%);
+}
+
+/* Cinematic overlay */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+  z-index:-1;
 }
 
 .container{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
-  padding:40px 20px;
+  padding:60px 20px;
   text-align:center;
 }
 
-h1{
-  font-size:2.5rem;
-  margin-bottom:20px;
-  animation:fadeIn 2s ease-in-out;
+/* Dramatic Name */
+.name{
+  font-size:3rem;
+  font-weight:800;
+  background:linear-gradient(90deg,#ff2e63,#ff9a9e,#fad0c4);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: glow 3s infinite alternate;
 }
 
+@keyframes glow{
+  from{text-shadow:0 0 10px #ff2e63;}
+  to{text-shadow:0 0 30px #ff9a9e;}
+}
+
+/* Scroll instruction */
+.top-note{
+  font-size:0.9rem;
+  opacity:0.8;
+  margin-bottom:40px;
+}
+
+/* Heart animation */
+.heart{
+  position:fixed;
+  bottom:-10px;
+  font-size:20px;
+  animation:float 8s linear infinite;
+  opacity:0.7;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-110vh);}
+}
+
+/* Paragraph */
 p{
   font-size:1.2rem;
-  line-height:1.8;
-  margin-bottom:20px;
-  animation:fadeIn 3s ease-in-out;
+  line-height:1.9;
+  margin-bottom:25px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
 }
 
-.heart{
-  font-size:60px;
-  animation:beat 1.5s infinite;
-  margin:20px 0;
+p.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Music controls */
+.music-control{
+  margin-top:40px;
 }
 
 button{
-  padding:12px 25px;
+  padding:10px 20px;
   border:none;
   border-radius:25px;
   background:#ff2e63;
   color:white;
-  font-size:16px;
   cursor:pointer;
-  margin-top:20px;
+  margin:5px;
 }
 
-@keyframes beat{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.2);}
+/* Scroll slow effect */
+html{
+  scroll-behavior:smooth;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* Responsive */
 @media (max-width:600px){
-  h1{font-size:1.8rem;}
+  .name{font-size:2.2rem;}
   p{font-size:1rem;}
 }
+
 </style>
 </head>
 
@@ -76,57 +120,34 @@ button{
 
 <div class="container">
 
-<h1>Happy 38th Birthday, Ram 🎂❤️</h1>
+<div class="top-note">
+✨ Before reading… scroll to the end and start the music. Then slowly scroll back up. ✨
+</div>
 
-<div class="heart">💞</div>
+<h1 class="name">Ram ❤️</h1>
 
-<p>
-You’re 38 today… and somehow even more irresistible than last year 😌✨  
-For starters, you now cancel plans with friends because you “have to wake up early for a walk.”  
-Look at you… responsible, disciplined, slightly dramatic — and still unbelievably cute. 🚶‍♂️🌅
-</p>
+<p>You’re 38 today… and somehow even more irresistible than last year 😌✨  
+Now you cancel plans because you need to wake up early for your walk.  
+Look at you — disciplined, dramatic, adorable. 🚶‍♂️🌅</p>
 
-<p>
-You say you want to spend your days doing the same things you always do…  
-and somehow, those things are always connected to me.  
-That part? I secretly love the most. 💋❤️  
-Because in between your routines, your walks, your seriousness…  
-there’s always us.
-</p>
+<p>You say you want to spend your days doing the same things you always do…  
+and somehow those things always include me.  
+That part? I love the most. 💋❤️</p>
 
-<p>
-This year has been different.  
-Deeper.  
-Stronger.  
-We didn’t just spend more time together —  
-we built something real. Something intense. Something ours. 🔥💞  
-The laughter, the chaos, the quiet nights, the stolen glances…  
-we’ve been lovers in the most beautiful way.
-</p>
+<p>This year we didn’t just spend time together —  
+we strengthened something real. Something intense. Something beautifully ours. 🔥💞</p>
 
-<p>
-And as you grow into every new version of yourself —  
-the early-sleeping version, the focused version,  
-the calm version, the slightly bossy version 😉 —  
-I promise I’ll love each one of them.  
-Softly. Fiercely. Completely.
-</p>
+<p>Through every evolving version of you —  
+the calm one, the focused one, the stubborn one 😉 —  
+I will love you completely.</p>
 
-<p>
-You are not just another year older…  
-you are another year wiser, stronger, and somehow even more magnetic.  
-And I feel lucky — no, blessed — to stand beside you,  
-to hold you, to tease you, to love you. 💖
-</p>
+<p>Happy 38th Birthday, my forever love. 🥂❤️  
+More walks. More stolen kisses. More us. Always us. ✨</p>
 
-<p>
-Happy Birthday, my forever love, Ram. 🥂❤️  
-Here’s to more walks, more cancelled plans,  
-more stolen kisses,  
-and a lifetime of us choosing each other again and again. ✨
-</p>
-
-<button onclick="playMusic()">Tap to Feel My Love 🎵</button>
+<div class="music-control">
+  <button onclick="playMusic()">▶ Play</button>
+  <button onclick="pauseMusic()">⏸ Pause</button>
+</div>
 
 <audio id="bgMusic">
   <source src="myaudio.mp3" type="audio/mpeg">
@@ -135,9 +156,39 @@ and a lifetime of us choosing each other again and again. ✨
 </div>
 
 <script>
+
+/* Play / Pause */
 function playMusic(){
   document.getElementById("bgMusic").play();
 }
+function pauseMusic(){
+  document.getElementById("bgMusic").pause();
+}
+
+/* Floating Hearts Generator */
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💞";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},8000);
+}
+setInterval(createHeart,700);
+
+/* Scroll reveal effect */
+const paragraphs = document.querySelectorAll("p");
+window.addEventListener("scroll",()=>{
+  paragraphs.forEach(p=>{
+    const position = p.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+    if(position < screenPosition){
+      p.classList.add("show");
+    }
+  });
+});
+
 </script>
 
 </body>
