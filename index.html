@@ -3,244 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Ram ❤️</title>
+<title>For My Love ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Georgia',serif;
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: white;
+    overflow-x: hidden;
 }
 
-body{
-background:linear-gradient(to bottom,#000000,#1a0000);
-color:white;
-overflow-x:hidden;
-scroll-behavior:smooth;
-position:relative;
-min-height:100vh;
+/* MAIN MESSAGE */
+.main-message {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255,0,0,0.2);
+    line-height: 1.8;
+    font-size: 18px;
 }
 
-header{
-text-align:center;
-padding:20px;
-font-size:13px;
-letter-spacing:2px;
-color:#ff9aa2;
+/* SPECIAL BUTTONS GRID */
+.special-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 80px;
 }
 
-h1{
-text-align:center;
-font-size:48px;
-margin:20px 0;
-color:#ff4d6d;
-animation:glow 3s infinite alternate;
+.special-btn {
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(45deg, #ff0033, #990000);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
 }
 
-@keyframes glow{
-from{ text-shadow:0 0 10px red; }
-to{ text-shadow:0 0 40px #ff4d6d; }
+.special-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px red;
 }
 
-.content{
-max-width:800px;
-margin:auto;
-padding:20px;
-line-height:1.9;
-font-size:18px;
-position:relative;
-z-index:2;
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 80%;
+    max-width: 600px;
+    background: #111;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px red;
+    transition: 0.4s ease;
+    z-index: 10;
 }
 
-.music-btn{
-display:block;
-margin:20px auto;
-padding:12px 25px;
-background:#ff4d6d;
-border:none;
-border-radius:30px;
-color:white;
-cursor:pointer;
-box-shadow:0 0 20px #ff4d6d;
-transition:0.3s;
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.music-btn:hover{
-background:#ff1e56;
+.popup p {
+    white-space: pre-line;
+    line-height: 1.7;
 }
 
-.love-btn{
-position:absolute;
-padding:8px 16px;
-background:rgba(0,0,0,0.7);
-color:#ff9aa2;
-border:1px solid #ff4d6d;
-border-radius:20px;
-cursor:pointer;
-font-size:12px;
-transition:0.3s;
+.close-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: crimson;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-.love-btn:hover{
-background:#1a0000;
-transform:scale(1.1);
+/* HEART WITH BLACK RIBBON */
+.heart {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: floatUp 8s linear infinite;
 }
 
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:none;
-justify-content:center;
-align-items:center;
-padding:20px;
-z-index:999;
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
 }
 
-.popup-content{
-background:linear-gradient(to bottom,#1a0000,#000);
-padding:30px;
-border-radius:15px;
-max-width:600px;
-text-align:center;
-box-shadow:0 0 40px red;
-animation:fadeIn 0.8s ease;
+.heart::before {
+    top: -10px;
+    left: 0;
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:scale(0.9);}
-to{opacity:1;transform:scale(1);}
+.heart::after {
+    left: -10px;
+    top: 0;
 }
 
-.back-btn{
-margin-top:20px;
-padding:10px 20px;
-background:#ff4d6d;
-border:none;
-border-radius:20px;
-color:white;
-cursor:pointer;
+/* Black Ribbon */
+.ribbon {
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background: black;
+    left: 8px;
+    top: -5px;
 }
 
-.heart{
-position:fixed;
-bottom:-10px;
-animation:float 6s linear infinite;
+@keyframes floatUp {
+    from {
+        bottom: -50px;
+        opacity: 1;
+    }
+    to {
+        bottom: 100%;
+        opacity: 0;
+    }
 }
 
-@keyframes float{
-0%{transform:translateY(0) scale(0.5);opacity:1;}
-100%{transform:translateY(-110vh) scale(1.2);opacity:0;}
+/* MUSIC BUTTON */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: black;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid red;
 }
-
 </style>
 </head>
 
 <body>
 
-<header>✨ Scroll slowly… and tap to feel my love ✨</header>
-
-<h1>RAM ❤️</h1>
-
-<button class="music-btn" onclick="toggleMusic()" id="musicControl">
-Tap to feel my love 🎵
-</button>
-
-<div class="content">
+<div class="main-message">
+<h2>Happy Birthday My Love ❤️</h2>
 
 <p>
-You’re 38 today… and have definitely changed since your last birthday.  
-For starters, now you decide to sleep early and cancel the plans of all your friends and family because you have to wake up early and go for a walk. 😌  
-And yet somehow, you still wait for my message before closing your eyes.  
-
-This has also been the year that you strengthened your bond with me… the year we spent the most time together, and the best time together, not just as two people talking — but as lovers building something sacred. ❤️  
-
-I dream of a life where birthdays are just quiet reminders that we are growing older but closer…  
-Where coffee tastes better because you’re sitting across from me. ☕  
-Where our fights end in tighter hugs.  
-Where every evolving version of you… I choose. Again and again.  
-
-Happy birthday, my forever love. 🔥  
-May 38 be softer, deeper, stronger…  
-and full of us.
+PASTE YOUR 5000+ WORD BIRTHDAY MESSAGE HERE.
+This section will remain untouched and long.
+You can write your dream life, future plans, everything here.
 </p>
-
 </div>
 
-<!-- Scattered Love Buttons -->
-<button class="love-btn" style="top:200px; left:10%;" onclick="openPopup(0)">Tap if you think of me at night</button>
-<button class="love-btn" style="top:500px; right:8%;" onclick="openPopup(1)">Tap if I'm your destiny</button>
-<button class="love-btn" style="top:900px; left:15%;" onclick="openPopup(2)">Tap if you’re obsessed</button>
-<button class="love-btn" style="top:1300px; right:12%;" onclick="openPopup(3)">Tap if I haunt your dreams</button>
-<button class="love-btn" style="top:1700px; left:5%;" onclick="openPopup(4)">Tap if I own your soul</button>
-<button class="love-btn" style="top:2100px; right:10%;" onclick="openPopup(5)">Tap if I’m your forever</button>
+<div class="special-container" id="specialContainer"></div>
 
-<!-- Popup -->
-<div class="popup" id="popupNote">
-<div class="popup-content">
-<p id="popupText"></p>
-<button class="back-btn" onclick="closePopup()">Come back to my heart 💕</button>
-</div>
+<div class="popup" id="popup">
+    <p id="popupText"></p>
+    <button class="close-btn" onclick="closePopup()">Back</button>
 </div>
 
-<audio id="bgMusic">
-<source src="myaudio.mp3" type="audio/mpeg">
+<button class="music-btn" onclick="toggleMusic()">Play / Pause Music 🎵</button>
+
+<audio id="bgMusic" loop>
+    <source src="your-myaudio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-function toggleMusic(){
-var music=document.getElementById("bgMusic");
-var btn=document.getElementById("musicControl");
-
-if(music.paused){
-music.play();
-btn.innerText="Pause before I miss you too much 💕";
-}else{
-music.pause();
-btn.innerText="Tap to feel my love 🎵";
-}
-}
+/* ===== SPECIAL MESSAGES (ALL 21 INCLUDED) ===== */
 
 const messages = [
-`Ek tasveer hai teri mere sath  
+
+`i never knew laughter had a sound, until I heard you laughing.`,
+
+`Ek tasveer hai teri mere sath 
 Mazaal hai k maine ek bhi baar khud ko dekha ho`,
 
-`I would recognise you in total darkness… and love you in every lifetime.`,
+`I would recognise you in total darkness, were you mute and i deaf. I would recognize you in another lifetime entirely, in different bodies, different times. And i would love you in all of this, until the very last star in the sky burnt out into oblivion.`,
 
 `Tera ishq chakarvayuh, aur mai Abhimanyu.`,
 
-`The world thinks I'm sleeping… but my soul is wide awake loving you in another realm.`,
+`The world thinks I'm sleeping... but my soul is wide awake loving you in another realm.`,
 
 `Tere bina, oh mahiya, din dariya, rain jajire lagde ne.`,
 
-`When death takes my hand, I will promise to find you in every life.`
+`when death takes my hand, I will hold you with other and promise to find you in every life.`,
+
+`My face is a hundred times brighter when I see your face.
+My soul is a hundred times happier when your soul is near.`,
+
+`The day we started talking to each other; I wonder if the stars looked down at us and thought
+'they finally met.’`,
+
+`whatever eats my corpse would be so infested with my love for you it would spend the rest of its days searching for the taste in anything it eats.`,
+
+`The Last Supper
+And when I'm six feet underground, With bugs feasting on my brain,
+They'll see your face behind their eyes, And feel your touch through pulsing veins.
+They'll breathe the scent you left behind, Hear your voice in whispered sighs, Calling my name through a moonlit sky-A sound that lingers, never dies.
+They'll wander through untold desires,
+Dancing where memories ignite,
+As they feast upon the sacred part Of me that still holds you so tight.
+In the corners where I kept you safe, They'll find the wonders I once knew.
+Even in death, my soul remains, Forever dreaming, only of you.`,
+
+`I need 3 things
+The sun for the day
+The moon for the night
+And
+You for my whole life ~`,
+
+`For as long as I’m alive
+You’ll always be loved
+Because I’ve never loved anyone or anything as deeply as I love you
+And I mean that with my entire heart and my entire soul
+You’re beautiful, you’re sweet, you’re kind
+And I love you with everything that I have`,
+
+`O-live-you
+I-a-peach-iate-you
+You’re pear-fect for me
+You’re one in a melon
+I’m grape-ful for you
+You’re the berry best`,
+
+`Mujhe prem hua, yeh bhagya hai
+Kintu aapse hua, ye saubhagya hai`,
+
+`Kese bataun Mai tumhe Mere liye kon ho tum
+Tum dhadkanon ka Geet ho... tum bin toh mai kuch bhi nahin`,
+
+`Kabristan ka haal kuch aisa hai
+Main tumhare liye jeeyei... yeh sher suna rhi hai`,
+
+`Tu jo mila toh zindagi hai badli
+Mai poori nayi ho gyi`,
+
+`My darling
+You’ll never be unloved by me
+You’re too well tangled in my soul`,
+
+`Sara shehar thanda hai
+Bs ik teri baahon ko chod kar`,
+
+`Tu agle janam mil ske dubara mujhe
+Rovan luk luk darrr di mari 
+Tere nhi khyal bhulde
+Sanu bhul gyi khudayi channa sari 
+Tere nhi khyal bhulde`
 ];
 
-function openPopup(index){
-document.getElementById("popupText").innerText = messages[index];
-document.getElementById("popupNote").style.display="flex";
+
+/* CREATE BUTTONS */
+const container = document.getElementById("specialContainer");
+
+messages.forEach((msg, index) => {
+    const btn = document.createElement("button");
+    btn.className = "special-btn";
+    btn.innerText = "Open My Heart " + (index + 1);
+    btn.onclick = () => openPopup(msg);
+    container.appendChild(btn);
+});
+
+
+function openPopup(text) {
+    document.getElementById("popupText").innerText = text;
+    document.getElementById("popup").classList.add("active");
 }
 
-function closePopup(){
-document.getElementById("popupNote").style.display="none";
+function closePopup() {
+    document.getElementById("popup").classList.remove("active");
 }
 
-function createHeart(){
-const heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="💝";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*15+20)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>{heart.remove();},6000);
+
+/* MUSIC */
+const music = document.getElementById("bgMusic");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
 }
 
-setInterval(createHeart,700);
+/* FLOATING HEARTS */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    const ribbon = document.createElement("div");
+    ribbon.classList.add("ribbon");
+
+    heart.appendChild(ribbon);
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 800);
 
 </script>
 
