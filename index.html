@@ -6,162 +6,142 @@
 <title>For My Love ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-    color: white;
-    overflow-x: hidden;
+body{
+    margin:0;
+    background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+    font-family:Georgia, serif;
+    color:white;
+    overflow-x:hidden;
 }
 
-/* MAIN MESSAGE */
-.main-message {
-    max-width: 800px;
-    margin: 100px auto;
-    padding: 40px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(255,0,0,0.2);
-    line-height: 1.8;
-    font-size: 18px;
+/* ===== MUSIC BUTTON ===== */
+.music-container{
+    position:fixed;
+    top:20px;
+    width:100%;
+    text-align:center;
+    z-index:20;
 }
 
-/* SPECIAL BUTTONS GRID */
-.special-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 80px;
+.music-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#c4002f;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-.special-btn {
-    padding: 12px 18px;
-    border-radius: 30px;
-    border: none;
-    background: linear-gradient(45deg, #ff0033, #990000);
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s ease;
+.music-btn:hover{
+    background:#ff003c;
+    transform:scale(1.05);
 }
 
-.special-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px red;
+/* ===== MAIN MESSAGE ===== */
+.main-message{
+    max-width:800px;
+    margin:120px auto 60px auto;
+    padding:40px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    line-height:1.8;
+    font-size:18px;
 }
 
-/* POPUP */
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 80%;
-    max-width: 600px;
-    background: #111;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px red;
-    transition: 0.4s ease;
-    z-index: 10;
+/* ===== SPECIAL BUTTONS ===== */
+.special-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:80px;
+    padding:20px;
 }
 
-.popup.active {
-    transform: translate(-50%, -50%) scale(1);
+.special-btn{
+    padding:10px 18px;
+    border-radius:25px;
+    border:none;
+    background:linear-gradient(45deg,#ff0033,#800000);
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.3s;
 }
 
-.popup p {
-    white-space: pre-line;
-    line-height: 1.7;
+.special-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px red;
 }
 
-.close-btn {
-    margin-top: 20px;
-    padding: 8px 16px;
-    background: crimson;
-    border: none;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
+/* ===== POPUP ===== */
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    width:85%;
+    max-width:600px;
+    background:#111;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 40px red;
+    transition:0.4s ease;
+    z-index:50;
 }
 
-/* HEART WITH BLACK RIBBON */
-.heart {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: red;
-    transform: rotate(45deg);
-    animation: floatUp 8s linear infinite;
+.popup.active{
+    transform:translate(-50%,-50%) scale(1);
 }
 
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
-    border-radius: 50%;
+.popup p{
+    white-space:pre-line;
+    line-height:1.7;
 }
 
-.heart::before {
-    top: -10px;
-    left: 0;
+.close-btn{
+    margin-top:20px;
+    padding:8px 16px;
+    background:crimson;
+    border:none;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
 }
 
-.heart::after {
-    left: -10px;
-    top: 0;
+/* ===== FLOATING HEARTS ===== */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:red;
+    animation:floatUp linear forwards;
 }
 
-/* Black Ribbon */
-.ribbon {
-    position: absolute;
-    width: 4px;
-    height: 30px;
-    background: black;
-    left: 8px;
-    top: -5px;
-}
-
-@keyframes floatUp {
-    from {
-        bottom: -50px;
-        opacity: 1;
+@keyframes floatUp{
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
     }
-    to {
-        bottom: 100%;
-        opacity: 0;
-    }
-}
-
-/* MUSIC BUTTON */
-.music-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    background: black;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    border: 1px solid red;
 }
 </style>
 </head>
 
 <body>
 
+<div class="music-container">
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">Play Me 🎵</button>
+</div>
+
 <div class="main-message">
 <h2>Happy Birthday My Love ❤️</h2>
 
 <p>
 PASTE YOUR 5000+ WORD BIRTHDAY MESSAGE HERE.
-This section will remain untouched and long.
-You can write your dream life, future plans, everything here.
+This section stays untouched and long.
+Write your dream life, future, everything here.
 </p>
 </div>
 
@@ -172,15 +152,13 @@ You can write your dream life, future plans, everything here.
     <button class="close-btn" onclick="closePopup()">Back</button>
 </div>
 
-<button class="music-btn" onclick="toggleMusic()">Play / Pause Music 🎵</button>
-
 <audio id="bgMusic" loop>
-    <source src="your-myaudio.mp3" type="audio/mpeg">
+    <source src="myaudio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* ===== SPECIAL MESSAGES (ALL 21 INCLUDED) ===== */
+/* ===== SPECIAL MESSAGES (ALL 21) ===== */
 
 const messages = [
 
@@ -208,13 +186,7 @@ My soul is a hundred times happier when your soul is near.`,
 `whatever eats my corpse would be so infested with my love for you it would spend the rest of its days searching for the taste in anything it eats.`,
 
 `The Last Supper
-And when I'm six feet underground, With bugs feasting on my brain,
-They'll see your face behind their eyes, And feel your touch through pulsing veins.
-They'll breathe the scent you left behind, Hear your voice in whispered sighs, Calling my name through a moonlit sky-A sound that lingers, never dies.
-They'll wander through untold desires,
-Dancing where memories ignite,
-As they feast upon the sacred part Of me that still holds you so tight.
-In the corners where I kept you safe, They'll find the wonders I once knew.
+And when I'm six feet underground...
 Even in death, my soul remains, Forever dreaming, only of you.`,
 
 `I need 3 things
@@ -224,10 +196,7 @@ And
 You for my whole life ~`,
 
 `For as long as I’m alive
-You’ll always be loved
-Because I’ve never loved anyone or anything as deeply as I love you
-And I mean that with my entire heart and my entire soul
-You’re beautiful, you’re sweet, you’re kind
+You’ll always be loved...
 And I love you with everything that I have`,
 
 `O-live-you
@@ -240,11 +209,11 @@ You’re the berry best`,
 `Mujhe prem hua, yeh bhagya hai
 Kintu aapse hua, ye saubhagya hai`,
 
-`Kese bataun Mai tumhe Mere liye kon ho tum
-Tum dhadkanon ka Geet ho... tum bin toh mai kuch bhi nahin`,
+`Kese bataun Mai tumhe Mere liye kon ho tum...
+Tum bin toh mai kuch bhi nahin`,
 
-`Kabristan ka haal kuch aisa hai
-Main tumhare liye jeeyei... yeh sher suna rhi hai`,
+`Kabristan ka haal kuch aisa hai...
+Yeh sher suna rhi hai`,
 
 `Tu jo mila toh zindagi hai badli
 Mai poori nayi ho gyi`,
@@ -261,63 +230,89 @@ Rovan luk luk darrr di mari
 Tere nhi khyal bhulde
 Sanu bhul gyi khudayi channa sari 
 Tere nhi khyal bhulde`
+
 ];
 
+/* ===== BUTTON NAMES ===== */
+
+const buttonNames = [
+"Your Laugh",
+"Our Picture",
+"Beyond Lifetimes",
+"Abhimanyu",
+"Another Realm",
+"Oh Mahiya",
+"Every Life",
+"Brighter Soul",
+"When We Met",
+"Haunting Love",
+"The Last Supper",
+"Three Things",
+"Deepest Love",
+"Fruit Love",
+"Saubhagya",
+"Geet & Sangeet",
+"Kabristan Sher",
+"New Me",
+"Tangled Soul",
+"Cold City",
+"Next Janam"
+];
 
 /* CREATE BUTTONS */
+
 const container = document.getElementById("specialContainer");
 
-messages.forEach((msg, index) => {
-    const btn = document.createElement("button");
-    btn.className = "special-btn";
-    btn.innerText = "Open My Heart " + (index + 1);
-    btn.onclick = () => openPopup(msg);
+messages.forEach((msg, index)=>{
+    const btn=document.createElement("button");
+    btn.className="special-btn";
+    btn.innerText=buttonNames[index];
+    btn.onclick=()=>openPopup(msg);
     container.appendChild(btn);
 });
 
-
-function openPopup(text) {
-    document.getElementById("popupText").innerText = text;
+function openPopup(text){
+    document.getElementById("popupText").innerText=text;
     document.getElementById("popup").classList.add("active");
 }
 
-function closePopup() {
+function closePopup(){
     document.getElementById("popup").classList.remove("active");
 }
 
+/* ===== MUSIC FUNCTION ===== */
 
-/* MUSIC */
-const music = document.getElementById("bgMusic");
+const music=document.getElementById("bgMusic");
+const musicBtn=document.getElementById("musicBtn");
 
-function toggleMusic() {
-    if (music.paused) {
+function toggleMusic(){
+    if(music.paused){
         music.play();
-    } else {
+        musicBtn.innerText="Pause Music ⏸";
+    }else{
         music.pause();
+        musicBtn.innerText="Play Me 🎵";
     }
 }
 
-/* FLOATING HEARTS */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
+/* ===== FLOATING HEARTS ===== */
 
-    const ribbon = document.createElement("div");
-    ribbon.classList.add("ribbon");
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerText="❤️";
 
-    heart.appendChild(ribbon);
-
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    const size=Math.random()*20+10;
+    heart.style.fontSize=size+"px";
+    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.style.animationDuration=(4+Math.random()*4)+"s";
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
+    setTimeout(()=>{heart.remove();},8000);
 }
 
-setInterval(createHeart, 800);
+setInterval(createHeart,500);
 
 </script>
 
