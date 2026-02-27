@@ -18,6 +18,8 @@ background:linear-gradient(to bottom,#000000,#1a0000);
 color:white;
 overflow-x:hidden;
 scroll-behavior:smooth;
+position:relative;
+min-height:100vh;
 }
 
 header{
@@ -47,6 +49,8 @@ margin:auto;
 padding:20px;
 line-height:1.9;
 font-size:18px;
+position:relative;
+z-index:2;
 }
 
 .music-btn{
@@ -66,20 +70,21 @@ transition:0.3s;
 background:#ff1e56;
 }
 
-.hidden-btn{
-display:block;
-margin:10px auto;
-padding:8px 18px;
-background:black;
+.love-btn{
+position:absolute;
+padding:8px 16px;
+background:rgba(0,0,0,0.7);
 color:#ff9aa2;
 border:1px solid #ff4d6d;
 border-radius:20px;
 cursor:pointer;
+font-size:12px;
 transition:0.3s;
 }
 
-.hidden-btn:hover{
+.love-btn:hover{
 background:#1a0000;
+transform:scale(1.1);
 }
 
 .popup{
@@ -164,33 +169,17 @@ May 38 be softer, deeper, stronger…
 and full of us.
 </p>
 
-<h2 style="text-align:center;margin-top:40px;">💌 Hidden Pieces of My Soul</h2>
-
-<div style="text-align:center;">
-<button class="hidden-btn" onclick="openPopup(0)">Memory 1</button>
-<button class="hidden-btn" onclick="openPopup(1)">Memory 2</button>
-<button class="hidden-btn" onclick="openPopup(2)">Memory 3</button>
-<button class="hidden-btn" onclick="openPopup(3)">Memory 4</button>
-<button class="hidden-btn" onclick="openPopup(4)">Memory 5</button>
-<button class="hidden-btn" onclick="openPopup(5)">Memory 6</button>
-<button class="hidden-btn" onclick="openPopup(6)">Memory 7</button>
-<button class="hidden-btn" onclick="openPopup(7)">Memory 8</button>
-<button class="hidden-btn" onclick="openPopup(8)">Memory 9</button>
-<button class="hidden-btn" onclick="openPopup(9)">Memory 10</button>
-<button class="hidden-btn" onclick="openPopup(10)">Memory 11</button>
-<button class="hidden-btn" onclick="openPopup(11)">Memory 12</button>
-<button class="hidden-btn" onclick="openPopup(12)">Memory 13</button>
-<button class="hidden-btn" onclick="openPopup(13)">Memory 14</button>
-<button class="hidden-btn" onclick="openPopup(14)">Memory 15</button>
-<button class="hidden-btn" onclick="openPopup(15)">Memory 16</button>
-<button class="hidden-btn" onclick="openPopup(16)">Memory 17</button>
-<button class="hidden-btn" onclick="openPopup(17)">Memory 18</button>
-<button class="hidden-btn" onclick="openPopup(18)">Memory 19</button>
-<button class="hidden-btn" onclick="openPopup(19)">Memory 20</button>
 </div>
 
-</div>
+<!-- Scattered Love Buttons -->
+<button class="love-btn" style="top:200px; left:10%;" onclick="openPopup(0)">Tap if you think of me at night</button>
+<button class="love-btn" style="top:500px; right:8%;" onclick="openPopup(1)">Tap if I'm your destiny</button>
+<button class="love-btn" style="top:900px; left:15%;" onclick="openPopup(2)">Tap if you’re obsessed</button>
+<button class="love-btn" style="top:1300px; right:12%;" onclick="openPopup(3)">Tap if I haunt your dreams</button>
+<button class="love-btn" style="top:1700px; left:5%;" onclick="openPopup(4)">Tap if I own your soul</button>
+<button class="love-btn" style="top:2100px; right:10%;" onclick="openPopup(5)">Tap if I’m your forever</button>
 
+<!-- Popup -->
 <div class="popup" id="popupNote">
 <div class="popup-content">
 <p id="popupText"></p>
@@ -218,48 +207,18 @@ btn.innerText="Tap to feel my love 🎵";
 }
 
 const messages = [
-
 `Ek tasveer hai teri mere sath  
 Mazaal hai k maine ek bhi baar khud ko dekha ho`,
 
-`I would recognise you in total darkness... and I would love you in every lifetime.`,
+`I would recognise you in total darkness… and love you in every lifetime.`,
 
 `Tera ishq chakarvayuh, aur mai Abhimanyu.`,
 
-`The world thinks I'm sleeping... but my soul is wide awake loving you in another realm.`,
+`The world thinks I'm sleeping… but my soul is wide awake loving you in another realm.`,
 
 `Tere bina, oh mahiya, din dariya, rain jajire lagde ne.`,
 
-`When death takes my hand, I will hold you with the other and promise to find you in every life.`,
-
-`My face is brighter when I see you. My soul happier when you’re near.`,
-
-`The day we started talking… maybe the stars whispered — they finally met.`,
-
-`Whatever eats my corpse would be infested with my love for you.`,
-
-`Even in death, my soul remains dreaming only of you.`,
-
-`The sun for the day. The moon for the night. And you for my whole life.`,
-
-`You’ll always be loved. No one has ever been loved by me like this.`,
-
-`You’re pear-fect. One in a melon. The berry best.`,
-
-`Mujhe prem hua, yeh bhagya hai. Kintu aapse hua, ye saubhagya hai.`,
-
-`Tum dhadkanon ka geet ho. Tum bin toh mai kuch bhi nahin.`,
-
-`Main tumhare liye jeeyei… meri qabar bhi tumhara naam legi.`,
-
-`Tu jo mila toh zindagi badli. Mai poori nayi ho gyi.`,
-
-`You’ll never be unloved by me. You’re tangled in my soul.`,
-
-`Sara shehar thanda hai… bas teri baahon ko chod kar.`,
-
-`Tu agle janam mil ske dubara mujhe.`
-
+`When death takes my hand, I will promise to find you in every life.`
 ];
 
 function openPopup(index){
@@ -274,7 +233,7 @@ document.getElementById("popupNote").style.display="none";
 function createHeart(){
 const heart=document.createElement("div");
 heart.classList.add("heart");
-heart.innerHTML="❤️🎀";
+heart.innerHTML="💝";
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(Math.random()*15+20)+"px";
 document.body.appendChild(heart);
