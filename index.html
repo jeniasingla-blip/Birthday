@@ -59,6 +59,7 @@ border-radius:30px;
 color:white;
 cursor:pointer;
 box-shadow:0 0 20px #ff4d6d;
+transition:0.3s;
 }
 
 .music-btn:hover{
@@ -67,13 +68,18 @@ background:#ff1e56;
 
 .hidden-btn{
 display:block;
-margin:40px auto;
-padding:10px 20px;
+margin:10px auto;
+padding:8px 18px;
 background:black;
 color:#ff9aa2;
 border:1px solid #ff4d6d;
 border-radius:20px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.hidden-btn:hover{
+background:#1a0000;
 }
 
 .popup{
@@ -97,7 +103,7 @@ border-radius:15px;
 max-width:600px;
 text-align:center;
 box-shadow:0 0 40px red;
-animation:fadeIn 1s ease;
+animation:fadeIn 0.8s ease;
 }
 
 @keyframes fadeIn{
@@ -118,7 +124,6 @@ cursor:pointer;
 .heart{
 position:fixed;
 bottom:-10px;
-color:#ff4d6d;
 animation:float 6s linear infinite;
 }
 
@@ -132,7 +137,7 @@ animation:float 6s linear infinite;
 
 <body>
 
-<header>✨ Before reading… play the music. ✨</header>
+<header>✨ Scroll slowly… and tap to feel my love ✨</header>
 
 <h1>RAM ❤️</h1>
 
@@ -143,56 +148,65 @@ Tap to feel my love 🎵
 <div class="content">
 
 <p>
-You’re 38 today… and somehow even more irresistible than last year.  
-You cancel plans early because morning walks are important now 😌  
-You sleep on time… but still wait for my message before closing your eyes.  
-And this year? This year belonged to us.  
-To stolen moments. To laughter. To long talks.  
-To loving each other deeper than we ever imagined possible. ❤️  
-</p>
+You’re 38 today… and have definitely changed since your last birthday.  
+For starters, now you decide to sleep early and cancel the plans of all your friends and family because you have to wake up early and go for a walk. 😌  
+And yet somehow, you still wait for my message before closing your eyes.  
 
-<p>
-I dream of building a life where birthdays are just reminders  
-that we are growing… but growing together.  
-Where coffee tastes better because you’re sitting across from me.  
+This has also been the year that you strengthened your bond with me… the year we spent the most time together, and the best time together, not just as two people talking — but as lovers building something sacred. ❤️  
+
+I dream of a life where birthdays are just quiet reminders that we are growing older but closer…  
+Where coffee tastes better because you’re sitting across from me. ☕  
 Where our fights end in tighter hugs.  
-Where every version of you… I choose. Again and again. 💞  
+Where every evolving version of you… I choose. Again and again.  
+
+Happy birthday, my forever love. 🔥  
+May 38 be softer, deeper, stronger…  
+and full of us.
 </p>
 
-<p>
-Happy Birthday my evolving, maturing, still dangerous love.  
-May 38 be softer, hotter, deeper…  
-and full of us. 🔥  
-</p>
+<h2 style="text-align:center;margin-top:40px;">💌 Hidden Pieces of My Soul</h2>
 
-<button class="hidden-btn" onclick="openPopup()">
-Unlock something special 🔐
-</button>
+<div style="text-align:center;">
+<button class="hidden-btn" onclick="openPopup(0)">Memory 1</button>
+<button class="hidden-btn" onclick="openPopup(1)">Memory 2</button>
+<button class="hidden-btn" onclick="openPopup(2)">Memory 3</button>
+<button class="hidden-btn" onclick="openPopup(3)">Memory 4</button>
+<button class="hidden-btn" onclick="openPopup(4)">Memory 5</button>
+<button class="hidden-btn" onclick="openPopup(5)">Memory 6</button>
+<button class="hidden-btn" onclick="openPopup(6)">Memory 7</button>
+<button class="hidden-btn" onclick="openPopup(7)">Memory 8</button>
+<button class="hidden-btn" onclick="openPopup(8)">Memory 9</button>
+<button class="hidden-btn" onclick="openPopup(9)">Memory 10</button>
+<button class="hidden-btn" onclick="openPopup(10)">Memory 11</button>
+<button class="hidden-btn" onclick="openPopup(11)">Memory 12</button>
+<button class="hidden-btn" onclick="openPopup(12)">Memory 13</button>
+<button class="hidden-btn" onclick="openPopup(13)">Memory 14</button>
+<button class="hidden-btn" onclick="openPopup(14)">Memory 15</button>
+<button class="hidden-btn" onclick="openPopup(15)">Memory 16</button>
+<button class="hidden-btn" onclick="openPopup(16)">Memory 17</button>
+<button class="hidden-btn" onclick="openPopup(17)">Memory 18</button>
+<button class="hidden-btn" onclick="openPopup(18)">Memory 19</button>
+<button class="hidden-btn" onclick="openPopup(19)">Memory 20</button>
+</div>
 
 </div>
 
-<!-- POPUP NOTE -->
 <div class="popup" id="popupNote">
 <div class="popup-content">
-<h2>For You 💌</h2>
-<p style="margin-top:20px;">
-“I never knew laughter had a sound… until I heard yours.” ❤️  
-</p>
-<button class="back-btn" onclick="closePopup()">Go back to my heart 💕</button>
+<p id="popupText"></p>
+<button class="back-btn" onclick="closePopup()">Come back to my heart 💕</button>
 </div>
 </div>
 
-<!-- AUDIO -->
 <audio id="bgMusic">
 <source src="myaudio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-// MUSIC FUNCTION
 function toggleMusic(){
-var music = document.getElementById("bgMusic");
-var btn = document.getElementById("musicControl");
+var music=document.getElementById("bgMusic");
+var btn=document.getElementById("musicControl");
 
 if(music.paused){
 music.play();
@@ -203,8 +217,53 @@ btn.innerText="Tap to feel my love 🎵";
 }
 }
 
-// POPUP FUNCTIONS
-function openPopup(){
+const messages = [
+
+`Ek tasveer hai teri mere sath  
+Mazaal hai k maine ek bhi baar khud ko dekha ho`,
+
+`I would recognise you in total darkness... and I would love you in every lifetime.`,
+
+`Tera ishq chakarvayuh, aur mai Abhimanyu.`,
+
+`The world thinks I'm sleeping... but my soul is wide awake loving you in another realm.`,
+
+`Tere bina, oh mahiya, din dariya, rain jajire lagde ne.`,
+
+`When death takes my hand, I will hold you with the other and promise to find you in every life.`,
+
+`My face is brighter when I see you. My soul happier when you’re near.`,
+
+`The day we started talking… maybe the stars whispered — they finally met.`,
+
+`Whatever eats my corpse would be infested with my love for you.`,
+
+`Even in death, my soul remains dreaming only of you.`,
+
+`The sun for the day. The moon for the night. And you for my whole life.`,
+
+`You’ll always be loved. No one has ever been loved by me like this.`,
+
+`You’re pear-fect. One in a melon. The berry best.`,
+
+`Mujhe prem hua, yeh bhagya hai. Kintu aapse hua, ye saubhagya hai.`,
+
+`Tum dhadkanon ka geet ho. Tum bin toh mai kuch bhi nahin.`,
+
+`Main tumhare liye jeeyei… meri qabar bhi tumhara naam legi.`,
+
+`Tu jo mila toh zindagi badli. Mai poori nayi ho gyi.`,
+
+`You’ll never be unloved by me. You’re tangled in my soul.`,
+
+`Sara shehar thanda hai… bas teri baahon ko chod kar.`,
+
+`Tu agle janam mil ske dubara mujhe.`
+
+];
+
+function openPopup(index){
+document.getElementById("popupText").innerText = messages[index];
 document.getElementById("popupNote").style.display="flex";
 }
 
@@ -212,19 +271,17 @@ function closePopup(){
 document.getElementById("popupNote").style.display="none";
 }
 
-// FLOATING HEARTS
 function createHeart(){
 const heart=document.createElement("div");
 heart.classList.add("heart");
-heart.innerHTML="❤️";
+heart.innerHTML="❤️🎀";
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+20)+"px";
+heart.style.fontSize=(Math.random()*15+20)+"px";
 document.body.appendChild(heart);
-
 setTimeout(()=>{heart.remove();},6000);
 }
 
-setInterval(createHeart,800);
+setInterval(createHeart,700);
 
 </script>
 
